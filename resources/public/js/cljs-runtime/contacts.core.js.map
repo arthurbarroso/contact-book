@@ -1,0 +1,1 @@
+{"version":3,"sources":["contacts/core.cljs"],"mappings":";AAEA,AAAA,AAAeA;AAAf,AACE,AAAA,AAACC","names":["contacts.core/init","cljs.core.println"],"sourcesContent":["(ns contacts.core)\n\n(defn ^:export init []\n  (println \"Hello world\"))\n"]}
