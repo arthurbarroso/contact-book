@@ -12,6 +12,7 @@
             [reitit.coercion.schema]
             [schema.core :as s]
             [muuntaja.core :as m]
+            [ring.middleware.cors :refer [wrap-cors]]
             [contacts.routes :refer [ping-routes contact-routes]]))
 
 
@@ -25,7 +26,10 @@
       contact-routes]]
     {:data {:coercion reitit.coercion.schema/coercion
             :muuntaja m/instance
-            :middleware [parameters-middleware
+            :middleware [[wrap-cors
+                          :access-control-allow-origin [#"http://localhost:3000"]
+                          :access-control-allow-methods [:get :post :put :delete]]
+                         parameters-middleware
                          format-negotiate-middleware
                          format-response-middleware
                          exception-middleware
